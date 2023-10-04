@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>learning java script</title>
+ </head>
+<body>
+
+<h2>Author entry Vinod Ramavath</h2>
+
+<form>
+    <label for="user_password">“The hidden author name</label>
+    <input type ="user" id="user_password" value="Dickens" min=10 max=50 step=2 value=30> <br>
+
+    <label for="Author_details">Guess the author </label>
+    <input type ="text" id="Author_details"  autofocus> <br>
+
+    <input type="button" onclick="checkAuthor()" value="Check the guess">
+</form>
+<p id="result">This text will be replaced here</p>
+
+<script> 
+var good =0;
+var oops=0;
+function checkAuthor(){
+    console.log("Getting form values")
+    user_password = document.getElementById("user_password").value;
+    Author_details = document.getElementById("Author_details").value;
+    
+    if(user_password === Author_details){
+        good++;
+        alert("You got it right")
+    } else {
+        oops++;
+        alert("sorry");
+    }
+    result = document.getElementById("result");
+    result.innerHTML = `right: ${good}, wrong: ${oops}`;
+}
+</script>
+<div>
+    <img id="images" style="height: 100px; width: 100px;" src="dallas.jpeg" alt="Image of dallas " onclick="selectImage()">
+</div>
+<script>
+    var usedphoto = 1;
+    function selectImage() {
+        var image = document.getElementById("cityImage");
+        switch (usedphoto) {
+            case 1:
+                image.src = "noida.jpg";
+                usedphoto = 2;
+                break;
+            case 2:
+                image.src = "omaha.jpg";
+                usedphoto = 3;
+                break;
+            default:
+                image.src  = "dallas.jpeg";
+                usedphoto = 1;
+        }
+    }
+</script>
+</div>
+
+</body>
+</html> 
